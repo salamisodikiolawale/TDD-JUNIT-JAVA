@@ -54,7 +54,7 @@ public class CalculatorTest {
 
         //ASSERT
         //assertEquals(5, somme);
-        assertThat(5).isEqualTo(somme);
+        assertThat(somme).isEqualTo(5);
     }
 
     @Test
@@ -120,6 +120,6 @@ public class CalculatorTest {
         // THEN
         //Set<Integer> expectedDigits = Stream.of(5, 7, 8, 9).collect(Collectors.toSet());
         //assertEquals(expectedDigits, actualDigits);
-        assertThat(actualDigits).containsExactly(5, 8, 9, 7);
+        assertThat(actualDigits).containsExactly(5, 7, 8, 9);
     }
 }
