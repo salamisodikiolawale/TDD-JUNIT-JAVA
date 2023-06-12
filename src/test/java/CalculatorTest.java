@@ -1,5 +1,6 @@
 import Calculator.Calculator;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -7,26 +8,34 @@ import java.text.MessageFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//@ExtendWith(LoggingExtension.class)
 public class CalculatorTest {
 
     private Calculator calculatorUnderTest;
 
     private static Instant startedAt;
 
+    //private Logger logger;
+
+    //public void setLogger(Logger logger) {
+       // this.logger = logger;
+    //}
+
     @BeforeEach
     public void initCalculator(){
-        System.out.println("Appel avant chaque test");
+        //logger.info("Appel avant chaque test");
         calculatorUnderTest = new Calculator();
     }
 
     @AfterEach
     public void undefCalculator(){
-        System.out.println("Appel après chaque test");
+       // logger.info("Appel après chaque test");
         calculatorUnderTest = null;
     }
 
@@ -54,7 +63,7 @@ public class CalculatorTest {
 
         //ASSERT
         //assertEquals(5, somme);
-        assertThat(5).isEqualTo(somme);
+        assertThat(somme).isEqualTo(5);
     }
 
     @Test
@@ -120,6 +129,6 @@ public class CalculatorTest {
         // THEN
         //Set<Integer> expectedDigits = Stream.of(5, 7, 8, 9).collect(Collectors.toSet());
         //assertEquals(expectedDigits, actualDigits);
-        assertThat(actualDigits).containsExactly(5, 8, 9, 7);
+        assertThat(actualDigits).containsExactly(5, 7, 8, 9);
     }
 }
